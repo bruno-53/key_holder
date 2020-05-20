@@ -2,19 +2,22 @@ import os
 from getpass import getpass
 from views.menu import main_menu
 
+
 print("********************\n")
-print("-key holder v 0.0.1-\n")
+print("-KEY HOLDER v 0.0.1-\n")
 print("********************")
 
 master_key = '123'
 
+# GETTING KEY IN HIDDEN MODE
 key = getpass(prompt='Insert your master key: ')
 
 
+# MASTER KEY VALIDATION
 if key != master_key:
 	print ('\n!!Wrong key!!\n')
 	exit()
 
 else:
-	os.system('clear')
+	os.system('cls' if os.name == 'nt' else 'clear')
 	main_menu()

@@ -1,4 +1,7 @@
-Este projeto tem como objetivo criar um guarda chave para senhas que vai conter:
+[UNDER CONSTRUCTION]
 
-	Storege de usuarios e senha
-	Criador de senha usando critérios fornecidos
+This project is a passoword manager will contain:
+
+	User and password storage
+
+	Password generator
