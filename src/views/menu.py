@@ -31,17 +31,20 @@ def main_menu():
 
 def add_new():
 	print('-__ADD MENU__-')
+	category = input('\nCategory: ').upper()
 	service = input('\nService name: ').upper()
 	username = input('\nUser name: ')
 	password = input('\nPassword: ')
-	print(f'\nSERVICE: [{service}] USERNAME: [{username}] PASSWORD: [{password}]')
+	annotations = input('\nAnnotations: ')
+	print(f'\nCATEGORY: [{category}]\nSERVICE: [{service}]\
+	\nUSERNAME: [{username}]\nPASSWORD: [{password}]\nANNOTATIONS: [{annotations}]')
 	
 	while True:		
-		save = input('\nSave changes? [Y/N]:').upper()
+		save = input('\nInclude changes? [Y/N]:').upper()
 		if save not in 'YN':
-					print ('\nINVALID SAVE OPTION')	
+					print ('\nINVALID OPTION')	
 		elif save == 'Y':
-			insert_key(service,username,password)
+			insert_key(category,service,username,password,annotations)
 			print('\n\n***__-SAVING SUCCESS-__***\n\n')
 			main_menu()
 		elif save == 'N':
