@@ -1,7 +1,9 @@
 import os
 from getpass import getpass
 from views.menu import main_menu
+from views.data_base import create_table
 
+create_table()
 
 print("********************\n")
 print("-KEY HOLDER v 0.0.1-\n")

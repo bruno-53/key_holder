@@ -1,5 +1,7 @@
 import os
-#MAIN MENU OPITIONS AND CONDITIONS
+from .data_base import insert_key
+
+# MAIN MENU OPITIONS AND CONDITIONS
 def main_menu():
 	select = (""" -__MAIN MENU__-
 	\n[1] --- ADD Password
@@ -29,7 +31,7 @@ def main_menu():
 
 def add_new():
 	print('-__ADD MENU__-')
-	service = input('\nService name: ')
+	service = input('\nService name: ').upper()
 	username = input('\nUser name: ')
 	password = input('\nPassword: ')
 	print(f'\nSERVICE: [{service}] USERNAME: [{username}] PASSWORD: [{password}]')
@@ -39,6 +41,7 @@ def add_new():
 		if save not in 'YN':
 					print ('\nINVALID SAVE OPTION')	
 		elif save == 'Y':
+			insert_key(service,username,password)
 			print('\n\n***__-SAVING SUCCESS-__***\n\n')
 			main_menu()
 		elif save == 'N':
