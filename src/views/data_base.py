@@ -9,11 +9,11 @@ def create_table():
 	global c
 	c.execute('''
 	CREATE TABLE IF NOT EXISTS holder(
-		category TEXT,
+		category TEXT NOT NULL,
 		serviceName TEXT NOT NULL,
 		userName TEXT NOT NULL,
 		password TEXT NOT NULL,
-		annotations TEXT
+		annotations TEXT NOT NULL
 	);
 	''')
 
@@ -26,3 +26,15 @@ def insert_key(category,service,username,password,annotations):
 	VALUES ('{category}','{service}','{username}','{password}','{annotations}')
 	''')
 	connection.commit()
+
+
+def list_all():
+	print('(CATEGORY --- SERVICE)')
+	print()
+	global connection
+	global c
+	c.execute('''SELECT category, " --- ",serviceName FROM holder;''')
+	for service in c.fetchall():
+		print(service)
+	print()
+	
