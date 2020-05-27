@@ -1,9 +1,10 @@
 import os
-from .data_base import insert_key, list_all
+from model.data_base import insert_key, list_all
+
 
 # MAIN MENU OPITIONS AND CONDITIONS
 def main_menu():
-	global clear
+	from model.model import clear_cli
 	select = (""" -__MAIN MENU__-
 	\n[1] --- ADD Password
 	\n[2] --- EDIT Password
@@ -23,11 +24,11 @@ def main_menu():
 				print ('\nINVALID OPTION train again')
 				#ADD OPITION
 			elif option == 1:
-				os.system('cls' if os.name == 'nt' else 'clear')
+				clear_cli()
 				add_new()
 				#CHECK OPTION
 			elif option == 3:
-				os.system('cls' if os.name == 'nt' else 'clear')
+				clear_cli()
 				check_pass()
 			elif option == 5:
 				exit()
@@ -35,6 +36,7 @@ def main_menu():
 			print("\nPlease insert ONLY NUMBERS")
 
 def add_new():
+	from model.model import clear_cli
 	print('-__ADD MENU__-')
 	category = input('\nCategory: ').upper()
 	if category == '':
@@ -61,6 +63,7 @@ def add_new():
 			main_menu()
 
 def check_pass():
+	from model.model import clear_cli
 	select = (""" -__CHECK MENU__-
 	\n[1] --- LIST ALL
 	\n[2] --- LIST CATEGORY
@@ -78,13 +81,13 @@ def check_pass():
 			if option not in option_list:
 				print ('\nINVALID OPTION train again')
 			elif option == 1:
-				os.system('cls' if os.name == 'nt' else 'clear')
+				clear_cli()
 				list_all()
 				check_pass()
 			elif option == 3:
-				os.system('cls' if os.name == 'nt' else 'clear')
+				clear_cli()
 			elif option == 4:
-				os.system('cls' if os.name == 'nt' else 'clear')
+				clear_cli()
 				main_menu()
 		except ValueError:
 			print("\nPlease insert ONLY NUMBERS")
