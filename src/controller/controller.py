@@ -6,52 +6,63 @@ def add_new():
 	from model.model import clear_cli
 	from views.menu import main_menu
 
-	print('-__ADD MENU__-')
-	category = input('\nCategory: ').upper()
+	print(' ************************')
+	print(' *       ADD KEY        *')
+	print(' ************************')
+	category = input(' Category: ').upper()
 	while True:
-		service = input('\nService name: ').upper()
+		service = input(' Service name: ').upper()
 		if service == '':
-			print('\nRequired field, please try again')
-			print()
+			print(' [!!!] REQUIRED FIELD [!!!]')
 		else:
 			break
 
 	while True:
-		username = input('\nUser name: ')
+		username = input(' User name: ')
 		if username == '':
-			print('\nRequired field, please try again')
-			print()
+			print(' [!!!] REQUIRED FIELD [!!!]' )
 		else:
 			break
 
 	while True:
-		password = input('\nPassword: ')
+		password = input(' Password: ')
 		if password == '':
-			print('\nRequired field, please try again')
-			print()
+			print(' [!!!] REQUIRED FIELD [!!!]')
 		else:
 			break
 
-	annotations = input('\nAnnotations: ')
+	annotations = input(' Annotations: ')
 
 	if annotations == '':
-		annotations = "EMPTY"
+		annotations = 'EMPTY'
 	if category == '':
-		category = "NOT CATEGORIZED"
-		
-	print(f'\nCATEGORY: [{category}]\nSERVICE: [{service}]\
-	\nUSERNAME: [{username}]\nPASSWORD: [{password}]\nANNOTATIONS: [{annotations}]')
+		category = 'EMPTY'
+
+	print('\n ************************')
+	print(f' CATEGORY:[{category}]')
+	print(f' SERVICE:[{service}]')
+	print(f' USERNAME:[{username}]')
+	print(f' PASSWORD:[{password}]')
+	print(f' ANNOTATIONS:[{annotations}]')
+	print(' ************************')
 	
 	while True:		
-		save = input('\nInclude changes? [Y/N]:').upper()
+		save = input('\n INCLUDE KEY? [Y/N]:').upper()
 		if save not in 'YN':
 					print ('\nINVALID OPTION')	
 		elif save == 'Y':
 			key_temp = Key('NULL',category,service,username,password,annotations)
 			key_temp.insert_key()
-			print('\n\n***__-SAVING SUCCESS-__***\n\n')
 			clear_cli()
+			print('    ******************')
+			print('    * SAVING SUCCESS *')
+			print('    ******************')			
+			print()
 			main_menu()
 		elif save == 'N':
-			print('\n\n***__-CANCEL SAVING-__***\n\n')
+			clear_cli()
+			print('    *****************')
+			print('    * CANCEL SAVING *')
+			print('    *****************')			
+			print()
 			main_menu()

@@ -21,12 +21,12 @@ def create_table():
 
 
 def list_all():
-	print('(CATEGORY --- SERVICE)')
-	print()
+	print(' ID    CATEGORY  SERVICE')
+	print('----   --------  -------')
 	global connection
 	global c
-	c.execute('''SELECT id,category, " --- ",serviceName FROM holder;''')
-	for service in c.fetchall():
-		print(service)
+	c.execute('''SELECT id,category,serviceName FROM holder;''')
+	for row in c.fetchall():
+		print(row)
 	print()
 	

@@ -10,12 +10,12 @@ def first_autentication():
 	master_key = '123'
 
 	# GETTING KEY IN HIDDEN MODE
-	key = getpass(prompt='Insert your master key: ')
+	key = getpass(prompt=' INSERT MASTER KEY: ')
 
 
 	# MASTER KEY VALIDATION
 	if key != master_key:
-		print ('\n!!Wrong key!!\n')
+		print ('\n[!!!] WRONG MK [ !!!]')
 		exit()
 
 	else:
