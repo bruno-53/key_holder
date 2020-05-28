@@ -1,8 +1,11 @@
-from model.data_base import insert_key
+from model.key import Key
+
 
 def add_new():
+
 	from model.model import clear_cli
 	from views.menu import main_menu
+
 	print('-__ADD MENU__-')
 	category = input('\nCategory: ').upper()
 	while True:
@@ -44,7 +47,8 @@ def add_new():
 		if save not in 'YN':
 					print ('\nINVALID OPTION')	
 		elif save == 'Y':
-			insert_key(category,service,username,password,annotations)
+			key_temp = Key('NULL',category,service,username,password,annotations)
+			key_temp.insert_key()
 			print('\n\n***__-SAVING SUCCESS-__***\n\n')
 			clear_cli()
 			main_menu()
