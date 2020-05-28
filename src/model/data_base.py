@@ -18,15 +18,6 @@ def create_table():
 	);
 	''')
 
-# INSERT DATA IN TABLE HOLDER
-def insert_key(category,service,username,password,annotations):
-	global connection
-	global c
-	c.execute(f'''
-	INSERT INTO holder (id,category,serviceName,userName,password,annotations)
-	VALUES (NULL,'{category}','{service}','{username}','{password}','{annotations}')
-	''')
-	connection.commit()
 
 
 def list_all():
