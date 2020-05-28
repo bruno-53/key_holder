@@ -1,4 +1,4 @@
-from model.data_base import insert_key, list_all
+from model.data_base import list_all
 from controller.controller import add_new
 
 # MAIN MENU OPITIONS AND CONDITIONS
@@ -34,35 +34,6 @@ def main_menu():
 		except ValueError:
 			print("\nPlease insert ONLY NUMBERS")
 
-"""def add_new():
-	from model.model import clear_cli
-	print('-__ADD MENU__-')
-	category = input('\nCategory: ').upper()
-	service = input('\nService name: ').upper()
-	username = input('\nUser name: ')
-	password = input('\nPassword: ')
-	annotations = input('\nAnnotations: ')
-
-	if annotations == '':
-		annotations = "EMPTY"
-	if category == '':
-		category = "NOT CATEGORIZED"
-		
-	print(f'\nCATEGORY: [{category}]\nSERVICE: [{service}]\
-	\nUSERNAME: [{username}]\nPASSWORD: [{password}]\nANNOTATIONS: [{annotations}]')
-	
-	while True:		
-		save = input('\nInclude changes? [Y/N]:').upper()
-		if save not in 'YN':
-					print ('\nINVALID OPTION')	
-		elif save == 'Y':
-			insert_key(category,service,username,password,annotations)
-			print('\n\n***__-SAVING SUCCESS-__***\n\n')
-			clear_cli()
-			main_menu()
-		elif save == 'N':
-			print('\n\n***__-CANCEL SAVING-__***\n\n')
-			main_menu()"""
 
 def check_pass():
 	from model.model import clear_cli
