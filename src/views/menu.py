@@ -1,5 +1,5 @@
 from model.data_base import list_all
-from controller.controller import add_new
+from controller.controller import add_new,chose_for
 
 # MAIN MENU OPITIONS AND CONDITIONS
 def main_menu():
@@ -22,11 +22,9 @@ def main_menu():
 			option = int(input(' SELECT OPTION: '))
 			if option not in option_list:
 				print ('\n INVALID OPTION, train again')
-				#ADD OPITION
 			elif option == 1:
 				clear_cli()
 				add_new()
-				#CHECK OPTION
 			elif option == 3:
 				clear_cli()
 				check_pass()
@@ -37,22 +35,18 @@ def main_menu():
 			print('\n Please insert ONLY NUMBERS')
 
 
+# CHECK MENU AND OPITIONS
 def check_pass():
 	from model.model import clear_cli
-	select = (''' -__CHECK MENU__-
-	\n[1] --- LIST ALL
-	\n[2] --- LIST CATEGORY
-	\n[3] --- SEARCH for Service
-	\n[4] --- BACK ''')
 
 	option_list = [1,2,3,4,5,0]
 	print(' **************************')
 	print(' *      CHECK MENU        *')
 	print(' *                        *')
 	print(' *  [1] --- LIST ALL      *')
-	print(' *  [2] --- FIND SERVICE  *')
-	print(' *  [3] --- FIND CATEGORY *')
-	print(' *  [4] --- FIND ID       *')
+	print(' *  [2] --- LIST SERVICE  *')
+	print(' *  [3] --- LIST CATEGORY *')
+	print(' *  [4] --- PICK KEY(ID)  *')
 	print(' *  [5] --- BACK          *')
 	print(' *  [0] --- EXIT          *')
 	print(' *                        *')
@@ -67,9 +61,15 @@ def check_pass():
 				clear_cli()
 				list_all()
 				check_pass()
+			elif option == 2:
+				chose_for(1)
+				check_pass()
 			elif option == 3:
-				clear_cli()
+				chose_for(2)
+				check_pass()
 			elif option == 4:
+				find_key(3)
+			elif option == 5:
 				clear_cli()
 				main_menu()
 			elif option == 0:
