@@ -20,13 +20,44 @@ def create_table():
 
 
 
+# LIST ALL KEYS IN HOLDER DATABASE
 def list_all():
+	import re
 	print(' ID    CATEGORY  SERVICE')
 	print('----   --------  -------')
 	global connection
 	global c
-	c.execute('''SELECT id,category,serviceName FROM holder;''')
+	c.execute('''SELECT id,'--',category,'--',serviceName FROM holder;''')
 	for row in c.fetchall():
-		print(row)
+		row = str(row)
+		row = re.sub(r'[\'*,)(]','',row)
+		print(f' {row}')
 	print()
-	
+
+
+# LIST FILTER BY SERVICE OR CATEGORY
+def list_chose(chose_temp,op):
+	import re
+	global connection
+	global c
+
+	if op == 1:
+		print(' ID    SERVICE  ')
+		print('----   -------- ')
+		c.execute(f'''SELECT id,'--',serviceName FROM holder WHERE serviceName = '{chose_temp}';''')
+		for row in c.fetchall():
+			row = str(row)
+			row = re.sub(r'[\',)(]','',row)
+			print(f' {row}')
+		print()
+
+	if op == 2:
+		print(' ID    CATEGORY  ')
+		print('----   -------- ')
+		c.execute(f'''SELECT id,'--',category FROM holder WHERE category = '{chose_temp}';''')
+		for row in c.fetchall():
+			row = str(row)
+			row = re.sub(r'[\',)(]','',row)
+			print(f' {row}')
+		print()
+
