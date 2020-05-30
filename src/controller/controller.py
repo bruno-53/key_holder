@@ -1,6 +1,7 @@
 from model.key import Key
+from model.data_base import list_chose
 
-
+#ADD NEW KEY IN HOLDER DATABASE
 def add_new():
 
 	from model.model import clear_cli
@@ -66,3 +67,25 @@ def add_new():
 			print('    *****************')			
 			print()
 			main_menu()
+
+
+# PICK NAME FOR SEARCH IN DATA BASE (SERVICE OR CATEGORY)
+def chose_for(chose_type):
+	from model.model import clear_cli
+	if chose_type == 1:
+		print(' **************************')
+		chose_temp = input(' SERVICE NAME: ').upper()
+		print(' **************************')
+		clear_cli()
+		list_chose(chose_temp,1)
+
+	if chose_type == 2:
+		print(' **************************')
+		chose_temp = input(' CATEGORY NAME: ').upper()
+		print(' **************************')
+		clear_cli()
+		list_chose(chose_temp,2)
+
+
+
+
