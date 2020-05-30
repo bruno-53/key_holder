@@ -3,8 +3,10 @@ import sqlite3
 connection = sqlite3.connect('key_holder.db')
 c = connection.cursor()
 
+# CREATE OBJECT KEY
 class Key:
 
+	# KEY FEATURES
 	def __init__(self,id,category,service,username,password,annotations):
 		self.id = id
 		self.category = category
