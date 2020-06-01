@@ -1,5 +1,5 @@
 from model.data_base import list_all
-from controller.controller import add_new,chose_for
+from controller.controller import add_new,chose_for,chose_key
 
 # MAIN MENU OPITIONS AND CONDITIONS
 def main_menu():
@@ -68,7 +68,8 @@ def check_pass():
 				chose_for(2)
 				check_pass()
 			elif option == 4:
-				find_key(3)
+				chose_key()
+				check_pass()
 			elif option == 5:
 				clear_cli()
 				main_menu()
