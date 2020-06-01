@@ -1,4 +1,5 @@
 import sqlite3
+from tkinter import Tk
 
 connection = sqlite3.connect('key_holder.db')
 c = connection.cursor()
@@ -25,3 +26,20 @@ class Key:
 		VALUES (NULL,'{self.category}','{self.service}','{self.username}','{self.password}','{self.annotations}')
 		''')
 		connection.commit()
+
+	def show_key(self):
+		print('\n ************************')
+		print(f' CATEGORY:[{self.category}]')
+		print(f' SERVICE:[{self.service}]')
+		print(f' USERNAME:[{self.username}]')
+		print(f' PASSWORD:[{self.password}]')
+		print(f' ANNOTATIONS:[{self.annotations}]')
+		print(' ************************')
+
+	def copy_password(self):
+		r = Tk()
+		r.withdraw()
+		r.clipboard_clear()
+		r.clipboard_append(f'{self.password}')
+		r.update()
+
