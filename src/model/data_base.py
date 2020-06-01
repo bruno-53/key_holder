@@ -68,11 +68,13 @@ def pick_key(chose_id):
 	import re
 	global connection
 	global c
+	flag = False
 	c.execute(f'''SELECT category FROM holder WHERE id = '{chose_id}';''')
 	for row in c.fetchall():
 		row = str(row)
 		row = re.sub(r'[\',)(]','',row)
 		category = row
+		flag = True
 	c.execute(f'''SELECT serviceName FROM holder WHERE id = '{chose_id}';''')
 	for row in c.fetchall():
 		row = str(row)
@@ -93,19 +95,25 @@ def pick_key(chose_id):
 		row = str(row)
 		row = re.sub(r'[\',)(]','',row)
 		annotations = row
-	key_temp = Key(chose_id,category,service,username,password,annotations)
-	key_temp.show_key()
-	while True:		
-		copy = input(' COPY PASSWORD FOR TRANSFER AREA? [Y/N]:').upper()
-		if copy not in 'YN':
-					print (' INVALID OPTION')	
-		elif copy == 'Y':
-			key_temp.copy_password()
-			print(' ******************************')
-			print(' *  PASSWORD IN TRANSFER AREA *')
-			print(' *   PRESS  CTRL+V TO PASTE   *')
-			print(' ******************************')
-			break
-		else:
-			print(' ***************************')
-			break
+	if flag == True:
+		key_temp = Key(chose_id,category,service,username,password,annotations)
+		key_temp.show_key()
+		while True:		
+			copy = input(' COPY PASSWORD FOR TRANSFER AREA? [Y/N]:').upper()
+			if copy not in 'YN':
+						print (' INVALID OPTION')	
+			elif copy == 'Y':
+				key_temp.copy_password()
+				print(' ******************************')
+				print(' *  PASSWORD IN TRANSFER AREA *')
+				print(' *   PRESS  CTRL+V TO PASTE   *')
+				print(' ******************************')
+				break
+			else:
+				print(' ***************************')
+				break
+	else:
+		print(' **************************')
+		print(' [!!!] INVALID KEY ID [!!!]')
+		print(' **************************')
+		print()
