@@ -1,5 +1,5 @@
 from model.key import Key
-from model.data_base import list_chose
+from model.data_base import list_chose,pick_key
 
 #ADD NEW KEY IN HOLDER DATABASE
 def add_new():
@@ -87,5 +87,11 @@ def chose_for(chose_type):
 		list_chose(chose_temp,2)
 
 
-
+def chose_key():
+	from model.model import clear_cli
+	print(' **************************')
+	chose_id = input(' KEY ID: ').upper()
+	print(' **************************')
+	clear_cli()
+	pick_key(chose_id)
 
