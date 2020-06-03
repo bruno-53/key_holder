@@ -1,10 +1,10 @@
 from model.data_base import list_all
-from controller.controller import add_new,chose_for,chose_key
+from controller.controller import add_new,chose_for,chose_key,make_password
 
 # MAIN MENU OPITIONS AND CONDITIONS
 def main_menu():
 	from model.model import clear_cli
-	option_list = [1,2,3,4,0]
+	option_list = [1,2,3,4,5,0]
 	print(' ************************')
 	print(' *      MAIN MENU       *')
 	print(' *                      *')
@@ -12,6 +12,7 @@ def main_menu():
 	print(' *  [2] --- EDIT KEY    *')
 	print(' *  [3] --- CHECK KEY   *')
 	print(' *  [4] --- REMOVE KEY  *')
+	print(' *  [5] --- MAKE PASS   *')
 	print(' *  [0] --- EXIT        *')
 	print(' *                      *')
 	print(' ************************')
@@ -24,10 +25,13 @@ def main_menu():
 				print ('\n INVALID OPTION, train again')
 			elif option == 1:
 				clear_cli()
-				add_new()
+				add_new('')
 			elif option == 3:
 				clear_cli()
 				check_pass()
+			elif option == 5:
+				clear_cli()
+				make_password()
 			elif option == 0:
 				clear_cli()
 				exit()

@@ -2,7 +2,9 @@ from model.key import Key
 from model.data_base import list_chose,pick_key
 
 #ADD NEW KEY IN HOLDER DATABASE
-def add_new():
+
+
+def add_new(password):
 
 	from model.model import clear_cli
 	from views.menu import main_menu
@@ -25,12 +27,13 @@ def add_new():
 		else:
 			break
 
-	while True:
-		password = input(' Password: ')
-		if password == '':
-			print(' [!!!] REQUIRED FIELD [!!!]')
-		else:
-			break
+	if password == '':		
+		while True:
+			password = input(' Password: ')
+			if password == '':
+				print(' [!!!] REQUIRED FIELD [!!!]')
+			else:
+				break
 
 	annotations = input(' Annotations: ')
 
@@ -46,6 +49,7 @@ def add_new():
 	print(f' PASSWORD:[{password}]')
 	print(f' ANNOTATIONS:[{annotations}]')
 	print(' ************************')
+
 	
 	while True:		
 		save = input('\n INCLUDE KEY? [Y/N]:').upper()
@@ -94,4 +98,41 @@ def chose_key():
 	print(' **************************')
 	clear_cli()
 	pick_key(chose_id)
+
+
+def make_password():
+	from views.menu import main_menu
+	from random import choice
+	from tkinter import Tk
+	print(' ************************')
+	print(' *     MAKE PASSWORD    *')
+	print(' ************************')
+	while True:
+		try:
+			caracteres = "0123456789abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%&*_+}{`^?;:>/-+."
+			size_key = int(input(' INSERT KEY SIZE: '))
+			key = ""
+			for i in range(size_key):
+				key += choice(caracteres)
+			print(' **************************')
+			print(f' YOUR PASSWORD IS: [ {key} ]')
+			print(' **************************')
+			while True:		
+				op = input(' USE THIS PASSWORD IN NEW KEY? [Y/N]:').upper()
+				if op not in 'YN':
+					print (' INVALID OPTION')	
+				elif op == 'Y':
+					add_new(key)
+					break
+				else:
+					print(' ***************************')
+					break
+					main_menu()
+			main_menu()
+			break
+		except ValueError:
+			print()
+			print(' [!!!] PLEASE INSERT ONLY NUMBERS [!!!]')
+			print()
+
 
