@@ -26,7 +26,7 @@ class Key:
 		VALUES (NULL,'{self.category}','{self.service}','{self.username}','{self.password}','{self.annotations}')
 		''')
 		connection.commit()
-
+	
 	def show_key(self):
 		print('\n ************************')
 		print(f' CATEGORY:[{self.category}]')
@@ -43,3 +43,21 @@ class Key:
 		r.clipboard_append(f'{self.password}')
 		r.update()
 
+	def edit_key(self,chose_id):
+		global connection
+		global c
+		c.execute(f'''
+		UPDATE holder
+		SET category = '{self.category}',serviceName = '{self.service}',userName = '{self.username}',password = '{self.password}',annotations = '{self.annotations}'
+		WHERE id = '{chose_id}'
+		''')
+		connection.commit()
+
+	def delete_key(self,chose_id):
+		global connection
+		global c
+		c.execute(f'''
+		DELETE FROM holder
+		WHERE id = '{chose_id}'
+		''')
+		connection.commit()

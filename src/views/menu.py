@@ -26,9 +26,16 @@ def main_menu():
 			elif option == 1:
 				clear_cli()
 				add_new('')
+			elif option == 2:
+				clear_cli()
+				edit_menu()
 			elif option == 3:
 				clear_cli()
-				check_pass()
+				check_menu()
+			elif option == 4:
+				list_all()
+				chose_key(2)
+				main_menu()
 			elif option == 5:
 				clear_cli()
 				make_password()
@@ -38,9 +45,44 @@ def main_menu():
 		except ValueError:
 			print('\n Please insert ONLY NUMBERS')
 
+# EDIT MENU AND OPITIONS
+def edit_menu():
+	from model.model import clear_cli
+
+	option_list = [1,2,3,0]
+	print(' **************************')
+	print(' *       EDIT MENU        *')
+	print(' *                        *')
+	print(' *  [1] --- LIST ALL      *')
+	print(' *  [2] --- EDIT KEY(ID)  *')
+	print(' *  [3] --- BACK          *')
+	print(' *  [0] --- EXIT          *')
+	print(' *                        *')
+	print(' **************************')
+
+	while True:
+		try:
+			option = int(input(' SELECT OPTION: '))
+			if option not in option_list:
+				print ('\n INVALID OPTION train again')
+			elif option == 1:
+				clear_cli()
+				list_all()
+				edit_menu()
+			elif option == 2:
+				chose_key(1)
+				edit_menu()
+			elif option == 3:
+				clear_cli()
+				main_menu()
+			elif option == 0:
+				clear_cli()
+				exit()
+		except ValueError:
+			print(' Please insert ONLY NUMBERS')
 
 # CHECK MENU AND OPITIONS
-def check_pass():
+def check_menu():
 	from model.model import clear_cli
 
 	option_list = [1,2,3,4,5,0]
@@ -64,16 +106,16 @@ def check_pass():
 			elif option == 1:
 				clear_cli()
 				list_all()
-				check_pass()
+				check_menu()
 			elif option == 2:
 				chose_for(1)
-				check_pass()
+				check_menu()
 			elif option == 3:
 				chose_for(2)
-				check_pass()
+				check_menu()
 			elif option == 4:
-				chose_key()
-				check_pass()
+				chose_key(0)
+				check_menu()
 			elif option == 5:
 				clear_cli()
 				main_menu()
@@ -82,3 +124,5 @@ def check_pass():
 				exit()
 		except ValueError:
 			print(' Please insert ONLY NUMBERS')
+
+

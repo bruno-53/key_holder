@@ -91,13 +91,13 @@ def chose_for(chose_type):
 		list_chose(chose_temp,2)
 
 
-def chose_key():
+def chose_key(op):
 	from model.model import clear_cli
 	print(' **************************')
 	chose_id = input(' KEY ID: ').upper()
 	print(' **************************')
 	clear_cli()
-	pick_key(chose_id)
+	pick_key(chose_id,op)
 
 
 def make_password():
