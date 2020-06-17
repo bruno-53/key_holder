@@ -4,7 +4,7 @@ from model.model import first_autentication
 
 print('\n ************************')
 print(' *                      *')
-print(' * -KEY HOLDER v 0.1.0- *')
+print(' * -KEY HOLDER v  1.0 - *')
 print(' *                      *')
 print(' ************************')
 
