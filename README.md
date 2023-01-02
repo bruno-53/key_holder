@@ -13,7 +13,7 @@
 
 :runner: Bruno Aparecido Alves
 
-:whale: [@cubo_magico_53](https://twitter.com/cubo_magico_53)
+:whale: [Linkedin](https://www.linkedin.com/in/brunoaparecidoalves/)
 
 :e-mail: brunoaparecidoalves@gmail.com
 
